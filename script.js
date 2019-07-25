@@ -1,11 +1,15 @@
 var c_name="";
 function myFunction() {
+  //get the input from the search bar
   c_name = document.getElementById("mySearch").value;
   
-  const ul=document.getElementById("country");
+  //append the name to the url 
 const url='https://restcountries.eu/rest/v2/name/'+c_name;
+//use fetch api to fetch the response from rest api
 fetch(url)
+//make the response into json object
 .then(response => response.json())
+//parse the received data and
   .then(data => {
     var img = document.createElement("img");
     img.src = data.flag;
